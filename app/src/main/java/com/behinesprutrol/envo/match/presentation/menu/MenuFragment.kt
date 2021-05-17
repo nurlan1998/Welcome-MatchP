@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.behinesprutrol.envo.match.R
 import com.behinesprutrol.envo.match.databinding.FragmentMenuBinding
 
@@ -28,9 +29,9 @@ class MenuFragment : Fragment() {
     }
 
     private fun clickButton() {
-       when(mBinding.root){
-
-       }
+        mBinding.newGame.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_newGameFragment)
+        }
 
     }
 

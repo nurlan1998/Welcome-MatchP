@@ -9,40 +9,34 @@
     tools:context=".presentation.menu.MenuFragment">
 
 
-
-
-
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/newGame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/newgame"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/newgame"
         app:layout_constraintBottom_toTopOf="@id/leaders"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/leaders"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/leaders"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/leaders"
         app:layout_constraintBottom_toTopOf="@id/exit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newGame" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/exit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginBottom="64dp"
+        android:src="@drawable/exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/leaders" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

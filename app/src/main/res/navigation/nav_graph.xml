@@ -19,4 +19,13 @@
         android:name="com.behinesprutrol.envo.match.presentation.newGame.NewGameFragment"
         android:label="fragment_new_game"
         tools:layout="@layout/fragment_new_game" />
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.behinesprutrol.envo.match.presentation.web.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" >
+        <action
+            android:id="@+id/action_webFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>

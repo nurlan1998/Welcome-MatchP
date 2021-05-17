@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.behinesprutrol.envo.match.R
 import com.behinesprutrol.envo.match.databinding.FragmentMenuBinding
 import com.behinesprutrol.envo.match.databinding.FragmentWebBinding
@@ -18,6 +22,8 @@ class WebFragment : Fragment() {
     private var _binding: FragmentWebBinding? = null
     private val mBinding get() = _binding!!
 
+    private lateinit var webView: WebView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,20 +35,34 @@ class WebFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getBodyText()
+        webView = mBinding.webView
     }
-//    private fun getBodyText() {
-//        Thread(Runnable {
-//            val builder = StringBuilder()
-//            try {
-//                val url = "https://belfastbar.ru/pab" //your website url
-//                val doc: Document = Jsoup.connect(url).get()
-//                val body: Element = doc.body()
-//                builder.append(body.text())
-//            } catch (e: Exception) {
-//                builder.append("Error : ").append(e.message).append("\n")
-//            }
-//            runOnUiThread {
-//                Log.i("Result",builder.toString())}
-//        }).start()
-//    }
+    private fun getBodyText() {
+        mBinding.progressBar.visibility = View.VISIBLE
+        Thread(Runnable {
+            val builder = StringBuilder()
+            try {
+                val url = "https://belfastbar.ru/pab" //your website url
+                val doc: Document = Jsoup.connect(url).get()
+                val body: Element = doc.body()
+                builder.append(body.text())
+            } catch (e: Exception) {
+                mBinding.progressBar.visibility = View.INVISIBLE
+                builder.append("Error : ").append(e.message).append("\n")
+            }
+            activity?.runOnUiThread {
+                if(builder.toString().isEmpty()){
+                    findNavController().navigate(R.id.action_webFragment_to_menuFragment)
+                }else{
+                    webView.webViewClient = WebViewClient()
+                    webView.settings.domStorageEnabled = true
+                    webView.settings.javaScriptEnabled = true
+                    webView.settings.builtInZoomControls = true
+                    webView.loadUrl(builder.toString())
+                    mBinding.progressBar.visibility = View.INVISIBLE
+                }
+                Log.i("Result",builder.toString())}
+        }).start()
+    }
 }
