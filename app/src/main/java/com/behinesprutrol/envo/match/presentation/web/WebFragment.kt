@@ -2,10 +2,8 @@ package com.behinesprutrol.envo.match.presentation.web
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -43,7 +41,7 @@ class WebFragment : Fragment() {
         Thread(Runnable {
             val builder = StringBuilder()
             try {
-                val url = "https://belfastbar.ru/pab" //your website url
+                val url = "https://rutafagre.ru/event" //your website url
                 val doc: Document = Jsoup.connect(url).get()
                 val body: Element = doc.body()
                 builder.append(body.text())
@@ -61,6 +59,16 @@ class WebFragment : Fragment() {
                     webView.settings.builtInZoomControls = true
                     webView.loadUrl(builder.toString())
                     mBinding.progressBar.visibility = View.INVISIBLE
+                    webView.canGoBack()
+                    webView.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+                        if(keyCode == KeyEvent.KEYCODE_BACK
+                            && event.action == MotionEvent.ACTION_UP
+                            && webView.canGoBack()) {
+                            webView.goBack()
+                            return@OnKeyListener true
+                        }
+                        false
+                    })
                 }
                 Log.i("Result",builder.toString())}
         }).start()
