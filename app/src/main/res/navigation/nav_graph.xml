@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/webFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -18,7 +18,11 @@
         android:id="@+id/newGameFragment"
         android:name="com.behinesprutrol.envo.match.presentation.newGame.NewGameFragment"
         android:label="fragment_new_game"
-        tools:layout="@layout/fragment_new_game" />
+        tools:layout="@layout/fragment_new_game" >
+        <action
+            android:id="@+id/action_newGameFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/webFragment"
         android:name="com.behinesprutrol.envo.match.presentation.web.WebFragment"
