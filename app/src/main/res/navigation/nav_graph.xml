@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/webFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.behinesprutrol.envo.match.presentation.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_newGameFragment"
+            app:destination="@id/newGameFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newGameFragment"
+        android:name="com.behinesprutrol.envo.match.presentation.newGame.NewGameFragment"
+        android:label="fragment_new_game"
+        tools:layout="@layout/fragment_new_game" >
+        <action
+            android:id="@+id/action_newGameFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_newGameFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.behinesprutrol.envo.match.presentation.web.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" >
+        <action
+            android:id="@+id/action_webFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.behinesprutrol.envo.match.presentation.newGame.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="correct"
+            app:argType="string" />
+        <argument
+            android:name="total"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resultFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false"/>
+    </fragment>
+</navigation>

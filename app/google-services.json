@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309692253076",
+    "project_id": "welcome-matchp-ae906",
+    "storage_bucket": "welcome-matchp-ae906.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309692253076:android:eef222d740662da4058581",
+        "android_client_info": {
+          "package_name": "com.behinesprutrol.envo.match"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309692253076-om0qttkss7qe6h3dhq3d1ivitjksrcqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFIlH9TtvH0Cd_aA8WPg9dVWjV9UJ8chg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309692253076-om0qttkss7qe6h3dhq3d1ivitjksrcqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
