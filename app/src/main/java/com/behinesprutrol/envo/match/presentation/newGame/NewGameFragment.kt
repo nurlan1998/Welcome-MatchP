@@ -118,7 +118,10 @@ class NewGameFragment : Fragment(), View.OnClickListener {
                     when {
                         mCurrentPosition <= mQuestionList!!.size -> {
                             setQuestion()
-                        }
+                        }else ->{
+                        val action = NewGameFragmentDirections.actionNewGameFragmentToResultFragment(mCorrectAnswer.toString(),mQuestionList!!.size.toString())
+                        findNavController().navigate(action)
+                    }
                     }
                 } else {
                     val question = mQuestionList?.get(mCurrentPosition - 1)
